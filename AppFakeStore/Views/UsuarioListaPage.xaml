@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.UsuarioListaPage"
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             xmlns:model="clr-namespace:AppFakeStore.Models"
+             x:DataType="vm:UsuarioListaViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="#F0F4F8">
+
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="15" RowDefinitions="*,Auto" RowSpacing="15">
+
+        <RefreshView Grid.ColumnSpan="2" 
+                     Command="{Binding GetUsuariosCommand}" 
+                     IsRefreshing="{Binding IsRefreshing}">
+
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Usuarios}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding UsuarioSeleccionado}"
+                            SelectionChangedCommand="{Binding GoToDetailCommand}">
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="100" 
+                                 VerticalOptions="CenterAndExpand" 
+                                 HorizontalOptions="CenterAndExpand">
+                        <Image Source="not_found.jpg" 
+                               Aspect="AspectFit" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Usuario">
+                        <Frame BackgroundColor="#FFF" 
+                               CornerRadius="10" 
+                               HasShadow="True" 
+                               Padding="10" 
+                               Margin="10">
+                            <Grid ColumnDefinitions=".3*,.3*,.3*" 
+                                  RowDefinitions="Auto" 
+                                  ColumnSpacing="10" 
+                                  RowSpacing="10">
+
+                                <Label Grid.Column="0" 
+                                       Text="{Binding email}"
+                                       VerticalOptions="Center"
+                                       FontSize="16"
+                                       TextColor="#333"/>
+
+                                <Label Grid.Column="1" 
+                                       Text="{Binding username}"
+                                       VerticalOptions="Center"
+                                       FontSize="16"
+                                       TextColor="#333"/>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.AcercaPage"
+             xmlns:models="clr-namespace:AppFakeStore.Models"
+             Title="AcercaPage">
+
+    <VerticalStackLayout>
+        <Label 
+            Text="Datos del Programador" 
+            FontSize="Title"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <StackLayout>
+            <Frame HeightRequest="200" WidthRequest="200" CornerRadius="180" Padding="0" Margin="0,50,0,0" HorizontalOptions="Center">
+                <Image Source="C:\Users\Nicomila\Desktop\AppFakeStore-master\AppFakeStore\Resources\Img\avatar.png" Aspect="AspectFill" Margin="0"/>
+            </Frame>
+        </StackLayout>
+
+        <Label 
+            Text="Nombre: Nicolas Milanese Alejo" 
+            FontSize="Subtitle" 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Margin="0,20,0,0"/>
+
+        <!-- Contenedor Grid para centrar los botones -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Coloca los botones en el centro -->
+            <HorizontalStackLayout Grid.Column="1" Spacing="10" Padding="10">
+                <Button x:Name="IconBtn" Margin="0, 10" ContentLayout="Top, 5" Text="Contacto" Clicked="IconBtn_Clicked" WidthRequest="120" HeightRequest="70" BackgroundColor="#58D68D">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xe158;" />
+                    </Button.ImageSource>
+                </Button>
+                <Button x:Name="BackBtn" ContentLayout="Top, 5" Text="Volver"  WidthRequest="120" HeightRequest="70" BackgroundColor="#58D68D" Clicked="BackBtn_Clicked">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MaterialDesignIcons" Glyph="&#xeba6;"/>
+                    </Button.ImageSource>
+                </Button>
+            </HorizontalStackLayout>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

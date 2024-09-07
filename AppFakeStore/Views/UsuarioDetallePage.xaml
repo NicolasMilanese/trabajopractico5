@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppFakeStore.Views.UsuarioDetallePage"
+             xmlns:vm="clr-namespace:AppFakeStore.ViewModels"
+             xmlns:models="clr-namespace:AppFakeStore.Models"
+             x:DataType="vm:UsuarioDetalleViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <VerticalStackLayout Margin="10">
+
+            <Grid ColumnDefinitions=".3*,.7*" RowDefinitions="*,*,*,*,*,*" ColumnSpacing="0">
+
+                <Label Text="Nombre" Grid.Column="0" Grid.Row="0" VerticalOptions="Center"/>
+                <Entry Text="{Binding Usuario.username}" Grid.Column="1" Grid.Row="0" />
+
+                <Label 
+                Text="Email" 
+                Grid.Column="0" 
+                Grid.Row="1" 
+                VerticalOptions="Center"/>
+
+                <Editor 
+                Text="{Binding Usuario.email}" 
+                MaxLength="1000" 
+                Grid.Column="1" 
+                Grid.Row="1" />
+
+                <Label 
+                Text="Direccion" 
+                Grid.Column="0" 
+                Grid.Row="2" VerticalOptions="Center"/>
+                <Entry 
+                Text="{Binding Usuario.address}" 
+                Grid.Column="1" 
+                Grid.Row="2" />
+
+                <Label 
+                Text="Ciudad" 
+                Grid.Column="0" 
+                Grid.Row="3" 
+                VerticalOptions="Center"/>
+                <Entry 
+                Text="{Binding Usuario.city}" 
+                Grid.Column="1" 
+                Grid.Row="3" />
+
+                <Label 
+                Text="Telefono" 
+                Grid.Column="0" 
+                Grid.Row="4" 
+                VerticalOptions="Center"/>
+                <Entry
+                Text="{Binding Usuario.phone}" 
+                Grid.Column="1" 
+                Grid.Row="4" />
+            </Grid>
+
+            <Button 
+            Text="Volver a Lista" 
+            Margin="0,10" 
+            Command="{Binding GoBackCommand}" 
+                BackgroundColor="#58D68D"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
